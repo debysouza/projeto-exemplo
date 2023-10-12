@@ -1,10 +1,13 @@
 package br.com.api.projex.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,6 +31,10 @@ public class Disciplina {
 	@Column(name="nome_professor") //dis_tx_nome_prof
 	private String professor;
 
+	//opcional
+//	@OneToMany(mappedBy="disciplina") //relação de um para muitos - mappedBy-> recebe o nome da tabela que contém o relacionamento, ou seja, o nome da tabela em questão (disciplina)
+//	private List<Aluno> alunos; //listar os alunos de uma determinada disciplina
+	
 	public Disciplina() {
 		super();
 	}
