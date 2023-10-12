@@ -8,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -31,14 +30,27 @@ public class Aluno {
 	@Column(name="ativo") //alu_bl_ativo
 	private Boolean ativo;
 	
-	@ManyToMany
-	@JoinTable(
-			name="aluno_disciplina",
-			joinColumns=@JoinColumn(name="aluno_id"),
-			inverseJoinColumns=@JoinColumn(name="disciplina_id")
-			)
-	private List<Disciplina> disciplinas;
+//	@ManyToMany //relacionamento muitos para muitos
+//	@JoinTable( //criar a tabela de ligação
+//			name="aluno_disciplina", //nomeia a tabela de ligação
+//			joinColumns=@JoinColumn(name="aluno_id"), //referência de chave estrangeira da tabela em questão(Aluno)
+//			inverseJoinColumns=@JoinColumn(name="disciplina_id") //referência de chave estrangeira da tabela de associação(Disciplina)
+//			)
+//	private List<Disciplina> disciplinas; //lista da entidade de associação(Disciplina)
 
+	//inserir a restrição unique na coluna (disciplina_id)
+//	@OneToOne //relacionamente um para um
+//	@JoinColumn(name="disciplina_id") //criar uma chave estrangeira da tabela Disciplina na tabela Aluno
+//	private Disciplina disciplina; //atributo da tabela de associação (Disciplina)
+	
+//	@ManyToOne //relacionamento de muitos para um
+//	@JoinColumn(name="disciplina_id") //criar uma chave estrangeira da tabela Disciplina na tabela Aluno
+//	private Disciplina disciplina; //atributo que armazena o objeto disciplina de acordo com o aluno
+	
+	@OneToMany //relacionamente um para muitos
+	@JoinColumn(name="aluno_id") //criar uma chave estrangeira da tabela de associação (Disciplina)
+	private List<Disciplina> disciplinas; //lista de disciplinas por aluno
+	
 	public Aluno() {
 		super();
 	}
