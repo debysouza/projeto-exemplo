@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.api</groupId>
 	<artifactId>proj-ex</artifactId>
-	<version>2.0.0</version>
+	<version>2.1.0</version>
 	<name>proj-ex</name>
 	<description>Projeto Exemplo</description>
 	<properties>

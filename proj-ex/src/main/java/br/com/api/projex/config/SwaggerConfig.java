@@ -21,7 +21,7 @@ public class SwaggerConfig {
 	private ApiInfo apiInfo() {
 		ApiInfo apiInfo = new ApiInfoBuilder().title("Documentação da API")
 				.description("Projeto de exemplo API Rest Serratec.")
-				.license("Apache License Version 2.0").version("2.0.0").build();
+				.license("Apache License Version 2.0").version("2.1.0").build();
 
 		return apiInfo;
 	}
